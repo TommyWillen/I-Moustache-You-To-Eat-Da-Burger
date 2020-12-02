@@ -1,0 +1,19 @@
+body {
+    background-color: #ffa500 !important;
+}
+
+.moustache {
+    height: 100px;
+}
+
+.burger {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 160px;
+
+}
+
+.stretch {
+    width: 100% !important;
+}
