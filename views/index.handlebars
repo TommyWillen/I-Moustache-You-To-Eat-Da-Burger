@@ -20,18 +20,20 @@
             <div class="col-md-6">
                 <ul class="list-group list-group-flush rounded">
                     <!-- insert for each here -->
-                    <li class="list-group-item">Cheeseburger
-                        <button type="button" class="btn btn-warning float-right">Devour It!</button>
+                    {{#each uneaten}}
+                    <li class="list-group-item">{{this.id}}. {{this.burger_name}}                      <button type="button" class="btn btn-warning float-right eat-burg" data-eatid="{{this.id}}">Devour It!</button>
                     </li>
+                    {{/each}}
                 </ul>
             </div>
             <div class="col-md-6">
                 <!-- insert for each here -->
                 <ul class="list-group list-group-flush rounded">
-                    <li class="list-group-item">Cras justo odio
+                    {{#each eaten}}
+                    <li class="list-group-item">{{this.id}}. {{this.burger_name}}
                         <div class="btn-group float-right" role="group">
-                            <button type="button" class="btn btn-success">Eat Another?</button>
-                            <button type="button" class="btn btn-danger">Digest!</button>
+                            <button type="button" class="btn btn-success again-burg" data-againid="{{this.id}}">Eat Another?</button>
+                            <button type="button" class="btn btn-danger del-burg" data-delid="{{this.id}}">Digest!</button>
                         </div>
                     </li>
                 </ul>
@@ -39,13 +41,14 @@
         </div>
         <div class="row">
             <div class="col">
-                <div class="input-group mb-3">
+                <form class="input-group mb-3" id="addburg">
                     <input type="text" class="form-control" placeholder="Add a burger to eat"
-                        aria-label="Add a burger to eat">
+                        aria-label="Add a burger to eat" name="add-burg">
                     <div class="input-group-append">
-                        <button class="btn btn-success" type="button" id="button-addon2">Add It!</button>
+                        <button class="btn btn-success add-burg" type="submit" id="button-addon2">Add It!</button>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
+    <script type="text/javascript" src="../public/assets/scripts/burgers.js"></script>
