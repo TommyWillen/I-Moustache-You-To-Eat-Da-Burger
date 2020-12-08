@@ -4,7 +4,7 @@ CREATE database burger_timeDB;
 
 USE burger_timeDB;
 -- this is the table that will store burger name and if it has been eaten
-CREATE TABLE burger (
+CREATE TABLE burgers (
     id INT NOT NULL AUTO_INCREMENT,
     burger_name VARCHAR(144),
     is_eaten boolean default false,

@@ -1,54 +1,57 @@
 <div class="container">
-        <div class="row">
-            <div class="col ">
-                <h1 class="text-center">I <img src="../public/assets/images-and-gifs/moustache.png" class="moustache">
-                    You To
-                </h1>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col pb-2">
-                <img src="../public/assets/images-and-gifs/burger.png" class="burger">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <h1 class="text-center">Eat Da Burger!</h1>
-            </div>
-        </div>
-        <div class="row mt-3 mb-3">
-            <div class="col-md-6">
-                <ul class="list-group list-group-flush rounded">
-                    <!-- insert for each here -->
-                    {{#each uneaten}}
-                    <li class="list-group-item">{{this.id}}. {{this.burger_name}}                      <button type="button" class="btn btn-warning float-right eat-burg" data-eatid="{{this.id}}">Devour It!</button>
-                    </li>
-                    {{/each}}
-                </ul>
-            </div>
-            <div class="col-md-6">
-                <!-- insert for each here -->
-                <ul class="list-group list-group-flush rounded">
-                    {{#each eaten}}
-                    <li class="list-group-item">{{this.id}}. {{this.burger_name}}
-                        <div class="btn-group float-right" role="group">
-                            <button type="button" class="btn btn-success again-burg" data-againid="{{this.id}}">Eat Another?</button>
-                            <button type="button" class="btn btn-danger del-burg" data-delid="{{this.id}}">Digest!</button>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <form class="input-group mb-3" id="addburg">
-                    <input type="text" class="form-control" placeholder="Add a burger to eat"
-                        aria-label="Add a burger to eat" name="add-burg">
-                    <div class="input-group-append">
-                        <button class="btn btn-success add-burg" type="submit" id="button-addon2">Add It!</button>
-                    </div>
-                </form>
-            </div>
+    <div class="row">
+        <div class="col ">
+            <h1 class="text-center">I <img src="./assets/images-and-gifs/moustache.png" class="moustache">
+                You To
+            </h1>
         </div>
     </div>
-    <script type="text/javascript" src="../public/assets/scripts/burgers.js"></script>
+    <div class="row">
+        <div class="col pb-2">
+            <img src="./assets/images-and-gifs/burger.png" class="burger">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h1 class="text-center">Eat Da Burger!</h1>
+        </div>
+    </div>
+    <div class="row mt-3 mb-3">
+        <div class="col-md-6">
+            <ul class="list-group list-group-flush rounded">
+                <!-- this for each loop displays the burgers that are ready to be eaten -->
+                {{#each unEaten}}
+                <li class="list-group-item">{{this.id}}. {{this.burger_name}} <button type="button"
+                        class="btn btn-warning float-right eat-burg" data-eat="{{this.id}}">Devour It!</button>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="col-md-6">
+                <!-- this for each loop displays the burgers that have already been eaten and are ready to be removed or eaten again -->
+            <ul class="list-group list-group-flush rounded">
+                {{#each eaten}}
+                <li class="list-group-item">{{this.id}}. {{this.burger_name}}
+                    <div class="btn-group float-right" role="group">
+                        <button type="button" class="btn btn-success again-burg" data-againid="{{this.id}}">Eat
+                            Another?</button>
+                        <button type="button" class="btn btn-danger del-burg" data-delid="{{this.id}}">Digest!</button>
+                    </div>
+                    {{/each}}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <!-- this form allows the user to add another burger to the list to be eaten -->
+            <form class="input-group mb-3">
+                <input type="text" class="form-control addberg" placeholder="Add a burger to eat"
+                    aria-label="Add a burger to eat" name="add-burg" id="add-burg">
+                <div class="input-group-append">
+                    <button class="btn btn-success added-burg" type="submit" id="button-addon2">Add It!</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
