@@ -8,17 +8,13 @@ const burger = require("../models/burger");
 router.get("/", (req, res) => {
     burger.all(data => {
         let unEaten = data.filter(burger => !burger.is_eaten);
-        console.log(data);
         let eaten = data.filter(burger => burger.is_eaten);
         res.render("index", { unEaten: unEaten, eaten: eaten });
     });
 });
 // this function handles the backend posting of a new burger to the list
 router.post("/api/burger", (req, res) => {
-    console.log(req.body);
-
     const nameStr = req.body.name.split(" ").join("")
-    console.log(nameStr)
     burger.create(["burger_name", "is_eaten"], [nameStr, false], (result) => {
         res.json({ id: result.insertId })
     });
@@ -27,9 +23,6 @@ router.post("/api/burger", (req, res) => {
 router.put("/api/burger/uneaten/:id", (req, res) => {
 
     const condition = "id = " + req.params.id;
-
-    console.log("condition", condition);
-
     burger.update("is_eaten = true", condition, result => {
         if (result.affectedRows === 0) {
             return res.status(404).end();
@@ -41,9 +34,6 @@ router.put("/api/burger/uneaten/:id", (req, res) => {
 router.put("/api/burger/eaten/:id", (req, res) => {
 
     const condition = "id = " + req.params.id;
-
-    console.log("condition", condition);
-
     burger.update("is_eaten = false", condition, result => {
         if (result.affectedRows === 0) {
             return res.status(404).end();
@@ -55,8 +45,6 @@ router.put("/api/burger/eaten/:id", (req, res) => {
 router.delete("/api/burger/:id", (req, res) => {
 
     const condition = req.params.id;
-
-    console.log("condition", condition);
 
     burger.delete(condition, result => {
         if (result.affectedRows === 0) {
