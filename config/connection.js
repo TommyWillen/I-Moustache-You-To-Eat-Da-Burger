@@ -2,7 +2,12 @@
 const mysql = require("mysql");
 // this is the dotenv module that protects user information from being displayed
 require("dotenv").config();
-const connection = mysql.createConnection({
+let connection;
+
+if (process.env.JAWSDB_URL) {
+    connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+    connection = mysql.createConnection({
     host: "localhost",
   
     // Port is defined in .env file
@@ -16,7 +21,7 @@ const connection = mysql.createConnection({
     // You will need to create the db and add it here or in a .env file
     database: process.env.DB_DB
 });
-
+}
 connection.connect(err => {
     if (err) {
         console.error("error connecting: " + err.stack);
