@@ -27,7 +27,7 @@ To install the dependencies you will need to run: npm i
 
 Click the gif below to view the tutorial video:
 
-[![Click to view the tutorial video](/public/assets/images-and-gifs/eat-da-burger.gif)]()
+[![Click to view the tutorial video](/public/assets/images-and-gifs/eat-da-burger.gif)](https://youtu.be/8xcRdUKC9gQ)
 
 This silly application is my first attempt at utilizing the full stack.
 
@@ -52,5 +52,5 @@ Click [here](https://www.contributor-covenant.org/version/2/0/code_of_conduct/co
     
 GitHub Profile: [TommyWillen](https://github.com/TommyWillen)
 GitHub Repo: [Application Repo](https://github.com/TommyWillen/I-Moustache-You-To-Eat-Da-Burger)
-Heroku Site: [Deployed Website]()
+Heroku Site: [Deployed Website](https://agile-coast-16131.herokuapp.com/)
 Email: <TommyWillen12@gmail.com>
